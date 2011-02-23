@@ -1,5 +1,4 @@
 package Mason::Plugin::RouterSimple::Component;
-use MooseX::ClassAttribute;
 use Mason::PluginRole;
 use Router::Simple;
 

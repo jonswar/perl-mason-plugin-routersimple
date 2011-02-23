@@ -3,15 +3,23 @@ use Test::Class::Most parent => 'Mason::Test::Class';
 
 __PACKAGE__->default_plugins( [ '@Default', 'RouterSimple' ] );
 
-sub test_ok : Test(6) {
+sub test_ok : Test(10) {
     my $self = shift;
     $self->add_comp(
         path => '/foo.m',
         src  => '
-%% CLASS->router_add("bar");
-%% CLASS->router_add("wiki/:page", { action => "wiki" });
-%% CLASS->router_add("download/*.*", { action => "download" });
-%% CLASS->router_add("blog/{year:[0-9]+}/{month:[0-9]{2}}");
+%% route "bar";
+%% route "wiki/:page", { action => "wiki" };
+%% route "download/*.*", { action => "download" };
+%% route "blog/{year:[0-9]+}/{month:[0-9]{2}}";
+
+<%args>
+$.page => (default => "standard")
+</%args>
+
+month = <% $.month || "undef" %>
+page = <% $.page || "standard" %>
+splat = <% $.splat ? split(",", $.splat) : "undef" %>
 
 % $m->result->data->{args} = $.args;
 ',
@@ -22,9 +30,13 @@ sub test_ok : Test(6) {
 
         my $result;
         if ($expect) {
+            my $month = $expect->{month} || "undef";
+            my $page  = $expect->{page}  || "standard";
+            my $splat = $expect->{splat} ? split( ',', $expect->{splat} ) : "undef";
             $self->test_comp(
                 path        => $path,
-                expect_data => { args => { %$expect, router_result => $expect } }
+                expect      => "month = $month\npage = $page\nsplat = $splat",
+                expect_data => { args => { %$expect, router_result => $expect } },
             );
         }
         else {
