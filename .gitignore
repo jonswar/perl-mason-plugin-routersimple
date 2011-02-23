@@ -8,6 +8,7 @@ cp.yml
 data
 docs
 dist
+htdocs
 inc
 release
 tmp

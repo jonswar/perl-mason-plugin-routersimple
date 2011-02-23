@@ -12,6 +12,7 @@
 ^dist.ini
 ^docs
 ^git
+^htdocs
 ^inc/\.author
 ^localcpan
 ^misc
