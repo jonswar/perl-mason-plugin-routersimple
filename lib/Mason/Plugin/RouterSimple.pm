@@ -1,7 +1,6 @@
 package Mason::Plugin::RouterSimple;
-use 5.008;
-use strict;
-use warnings;
+use Moose;
+with 'Mason::Plugin';
 
 1;
 
@@ -15,11 +14,13 @@ Mason::Plugin::RouterSimple - Specify routes via Router::Simple
 
 =head1 SYNOPSIS
 
-    use Mason::Plugin::RouterSimple;
+
 
 =head1 DESCRIPTION
 
 Mason::Plugin::RouterSimple provides
+
+=head1 SUPPORT
 
 Questions and feedback are welcome, and should be directed to the mailing list:
 
@@ -37,5 +38,5 @@ The latest source code can be browsed and fetched at:
 
 =head1 SEE ALSO
 
-L<Some::Module>
+L<Mason>, L<Router::Simple>
 
