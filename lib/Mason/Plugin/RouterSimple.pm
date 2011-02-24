@@ -10,7 +10,7 @@ __END__
 
 =head1 NAME
 
-Mason::Plugin::RouterSimple - Specify Router::Simple routes for page components
+Mason::Plugin::RouterSimple - Specify routes for page components
 
 =head1 SYNOPSIS
 
@@ -28,14 +28,14 @@ then C</archives/news/2010/02> outputs
 
 =head1 DESCRIPTION
 
-First read L<Mason::Manual::RequestDispatch> for information about how request
-paths get mapped to page components.
+See L<Mason::Manual::RequestDispatch> for background on how request paths get
+mapped to page components.
 
-This plugin makes it easier to parse C<< $m->path_info >> (the remainder of the
+This plugin allows you to parse C<< $m->path_info >> (the remainder of the
 top-level path) using L<Router::Simple> routes.
 
 It can be used whenever C<< $m->path_info >> is set, i.e. with a
-L<dhandler|Mason::Manual::RequestDispatch/Dhandlers> or with a  L<partial
+L<dhandler|Mason::Manual::RequestDispatch/Dhandlers> or with a L<partial
 path|Mason::Manual::RequestDispatch/Partial paths>.
 
 Use the C<route> keyword to declare routes, either in a
@@ -52,9 +52,10 @@ omitted. e.g.
     route "blog/{year:[0-9]+}/{month:[0-9]{2}}";
     </%class>
 
-This plugin overrides the default C<allow_path_info> to return true for any
-component that declares at least one route. For components that do not declare
-a route, you will need to override C<allow_path_info> as usual.
+This plugin overrides the default
+L<allow_path_info|Mason::Manual::RequestDispatch/Partial paths> to return true
+for any component that declares at least one route. For components that do not
+declare a route, you will need to override C<allow_path_info> as usual.
 
 Any named captured arguments, including C<splat>, are placed in component
 attributes, which are automatically declared (as standard read-write
@@ -67,7 +68,7 @@ If none of the routes match, the request will be
 L<declined|Mason::Request/decline>; in a web context this generally means a
 404.
 
-e.g. Given the declarations above in a component named '/site.m',
+e.g. Given the route declarations above in a component named '/site.m',
 
 =over
 
