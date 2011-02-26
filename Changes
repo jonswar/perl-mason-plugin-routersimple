@@ -4,6 +4,8 @@ Revision history for Mason-Plugin-RouterSimple
 
 0.02  Feb 24, 2011
 
+- Add Router::Simple dependency
+
 0.01  Feb 24, 2011
 
 - Initial version
