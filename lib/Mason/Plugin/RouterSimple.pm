@@ -14,7 +14,7 @@ Mason::Plugin::RouterSimple - Specify routes for page components
 
 =head1 SYNOPSIS
 
-In a top-level component '/archives.m':
+In a top-level component '/archives.mc':
 
     %% route ":section/{year:[0-9]{4}}/{month:[0-9]{2}}";
 
@@ -68,7 +68,7 @@ If none of the routes match, the request will be
 L<declined|Mason::Request/decline>; in a web context this generally means a
 404.
 
-e.g. Given the route declarations above in a component named '/site.m',
+e.g. Given the route declarations above in a component named '/site.mc',
 
 =over
 

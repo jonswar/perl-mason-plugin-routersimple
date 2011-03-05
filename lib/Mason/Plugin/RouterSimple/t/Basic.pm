@@ -6,7 +6,7 @@ __PACKAGE__->default_plugins( [ '@Default', 'RouterSimple' ] );
 sub test_ok : Test(10) {
     my $self = shift;
     $self->add_comp(
-        path => '/foo.m',
+        path => '/foo.mc',
         src  => '
 %% route "bar";
 %% route "wiki/:page", { action => "wiki" };
