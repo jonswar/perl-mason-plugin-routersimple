@@ -40,7 +40,7 @@ splat = <% $.splat ? split(",", $.splat) : "undef" %>
             );
         }
         else {
-            $self->test_comp( path => $path, expect_error => qr/could not find component/ );
+            $self->test_comp( path => $path, expect_error => qr/could not resolve request path/ );
         }
     };
 
