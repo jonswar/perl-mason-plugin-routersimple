@@ -2,7 +2,7 @@ Revision history for Mason-Plugin-RouterSimple
 
 ** denotes an incompatible change
 
-0.04  Mar 10, 2011
+0.04  Apr 5, 2011
 
 - Fix case where component has no route
 
