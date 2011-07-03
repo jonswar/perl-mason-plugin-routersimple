@@ -2,7 +2,9 @@ Revision history for Mason-Plugin-RouterSimple
 
 ** denotes an incompatible change
 
-0.05  Apr 5, 2011
+0.05  Jul 2, 2011
+
+- Add required is=>'ro' now that PluginRole does not automate it
 
 0.04  Apr 5, 2011
 
