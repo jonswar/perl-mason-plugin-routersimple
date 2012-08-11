@@ -2,7 +2,7 @@ Revision history for Mason-Plugin-RouterSimple
 
 ** denotes an incompatible change
 
-0.06  Jul 2, 2011
+0.06  Aug 11, 2012
 
 - Replace %% with <%class> syntax
 
