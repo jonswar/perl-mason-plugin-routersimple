@@ -16,7 +16,9 @@ Mason::Plugin::RouterSimple - Specify routes for page components
 
 In a top-level component '/archives.mc':
 
-    %% route ":section/{year:[0-9]{4}}/{month:[0-9]{2}}";
+    <%class>
+    route ":section/{year:[0-9]{4}}/{month:[0-9]{2}}";
+    </%class>
 
     Archives for <b><% $.section %></b>
     For the month of <% $.month %>/<% $.year %>
@@ -38,16 +40,14 @@ It can be used whenever C<< $m->path_info >> is set, i.e. with a
 L<dhandler|Mason::Manual::RequestDispatch/Dhandlers> or with a L<partial
 path|Mason::Manual::RequestDispatch/Partial paths>.
 
-Use the C<route> keyword to declare routes, either in a
-L<E<lt>%classE<gt>|Mason::Manual::Syntax/E<lt>%classE<gt>> block or on a
-L<%%-line|Mason::Manual::Syntax/PERL LINES>.  Like
+Use the C<route> keyword to declare routes in a
+L<E<lt>%classE<gt>|Mason::Manual::Syntax/E<lt>%classE<gt>> block.  Like
 L<Router::Simple::connect|Router::Simple/METHODS>, C<route> takes a
-string/regex pattern and a destination hashref; the latter defaults to C<{}> if
-omitted. e.g.
-
-    %% route "wiki/:page", { action => "wiki" };
+string/regex pattern and a destination hashref; the latter defaults to C<{}>
+if omitted. e.g.
 
     <%class>
+    route "wiki/:page", { action => "wiki" };
     route "download/*.*", { action => "download" };
     route "blog/{year:[0-9]+}/{month:[0-9]{2}}";
     </%class>
