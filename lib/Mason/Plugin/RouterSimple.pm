@@ -2,6 +2,8 @@ package Mason::Plugin::RouterSimple;
 use Moose;
 with 'Mason::Plugin';
 
+__PACKAGE__->meta->make_immutable();
+
 1;
 
 __END__
@@ -43,8 +45,8 @@ path|Mason::Manual::RequestDispatch/Partial paths>.
 Use the C<route> keyword to declare routes in a
 L<E<lt>%classE<gt>|Mason::Manual::Syntax/E<lt>%classE<gt>> block.  Like
 L<Router::Simple::connect|Router::Simple/METHODS>, C<route> takes a
-string/regex pattern and a destination hashref; the latter defaults to C<{}>
-if omitted. e.g.
+string/regex pattern and a destination hashref; the latter defaults to C<{}> if
+omitted. e.g.
 
     <%class>
     route "wiki/:page", { action => "wiki" };
