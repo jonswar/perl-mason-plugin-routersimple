@@ -4,6 +4,10 @@ Revision history for Mason-Plugin-RouterSimple
 
 0.07  Aug 11, 2012
 
+- Define attributes for hash keys following route in addition to captures (Kamil N)
+- Fix 'Can't locate object method "allow_path_info"' error when hitting a path with
+  path_info on a component with no route or path_info
+
 0.06  Aug 11, 2012
 
 - Replace %% with <%class> syntax

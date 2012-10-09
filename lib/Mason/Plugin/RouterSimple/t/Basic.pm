@@ -3,9 +3,8 @@ use Test::Class::Most parent => 'Mason::Test::Class';
 
 __PACKAGE__->default_plugins( [ '@Default', 'RouterSimple' ] );
 
-sub test_ok : Tests {
+sub test_routes : Tests {
     my $self = shift;
-    return;
 
     $self->add_comp(
         path => '/foo.mc',
@@ -22,6 +21,7 @@ $.page => (default => "standard")
 month = <% $.month || "undef" %>
 page = <% $.page || "standard" %>
 splat = <% $.splat ? split(",", $.splat) : "undef" %>
+action = <% $.action || "undef" %>
 
 % $m->result->data->{args} = $.args;
 ',
@@ -35,9 +35,10 @@ splat = <% $.splat ? split(",", $.splat) : "undef" %>
             my $month = $expect->{month} || "undef";
             my $page  = $expect->{page}  || "standard";
             my $splat = $expect->{splat} ? split( ',', $expect->{splat} ) : "undef";
+            my $action = $expect->{action} || "undef";
             $self->test_comp(
                 path        => $path,
-                expect      => "month = $month\npage = $page\nsplat = $splat",
+                expect      => "month = $month\npage = $page\nsplat = $splat\naction = $action",
                 expect_data => { args => { %$expect, router_result => $expect } },
             );
         }

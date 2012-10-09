@@ -8,7 +8,8 @@ after 'modify_loaded_class' => sub {
 
     if ( my $router_object = $compc->router_object ) {
         my $routes = $router_object->{routes};
-        my @attrs = uniq( map { @{ $_->{capture} } } @$routes );
+        my @attrs =
+          uniq( map { @{ $_->{capture} }, $_->{dest} ? keys( %{ $_->{dest} } ) : () } @$routes );
         for (@attrs) { s/__splat__/splat/ }
         my $meta = $compc->meta;
         foreach my $attr (@attrs) {
