@@ -2,7 +2,7 @@ Revision history for Mason-Plugin-RouterSimple
 
 ** denotes an incompatible change
 
-0.07  Aug 11, 2012
+0.07  Oct 8, 2012
 
 - Define attributes for hash keys following route in addition to captures (Kamil N)
 - Fix 'Can't locate object method "allow_path_info"' error when hitting a path with
