@@ -17,6 +17,7 @@
 ^localcpan
 ^misc
 ^release
+^tidyall.ini
 ^tmp
 ^weaver.ini
 ^wiki
